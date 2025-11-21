@@ -26,9 +26,7 @@ jobs:
         # with:
         #   since_last_remote_commit: true 
 
-    - name: List all changed files
+    - name: Run treefmt
       env:
         ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-      run: |
-        devenv shell
-        treefmt ${ALL_CHANGED_FILES}
+      run: devenv shell treefmt ${ALL_CHANGED_FILES}

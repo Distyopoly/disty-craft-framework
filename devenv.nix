@@ -52,6 +52,7 @@
 
   # You can add a development script to run vite
   scripts.dev.exec = "vite";
+
   # https://devenv.sh/scripts/
   # scripts.hello.exec = ''
   #   echo hello from $GREET
