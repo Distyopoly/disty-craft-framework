@@ -31,4 +31,4 @@ jobs:
         ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
       run: |
         devenv shell
-        treeformat ${ALL_CHANGED_FILES}
+        treefmt ${ALL_CHANGED_FILES}
