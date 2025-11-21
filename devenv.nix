@@ -12,6 +12,39 @@
     pnpm.enable = true;
   };
 
+  treefmt = {
+    enable = true;
+    config = {
+      programs = {
+        nixfmt = {
+          enable = true;
+          strict = true;
+        };
+        deadnix.enable = true;
+        # statix check highlights antipatterns in Nix code. statix fix can fix several such occurrences.
+        statix.enable = true;
+      
+        # sorted things
+        keep-sorted.enable = true; 
+      };
+      settings.formatter = {
+        deadnix = {
+          priority = 1;
+          options = [ "-_" ];
+        };
+
+        statix = {
+          priority = 2;
+        };
+
+        nixfmt = {
+          priority = 3;
+        };
+      };
+    };
+  };
+
+
   # See full reference at https://devenv.sh/reference/options/
 
   # You can add a development script to run vite
