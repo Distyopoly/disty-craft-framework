@@ -1,24 +1,22 @@
 name: Packaging the framework
 run-name: ${{ github.actor }} packaging your framework 🚀
 
-on:
-  push:
-    branches:
-        - main
-        - packaging-framework
-  pull_request:
-    branches:
-        - main
+on: push
 
 jobs:
-  treefmt:
+  package-framework:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v5
-    - uses: actions/upload-artifact@v4
-      with:
-        name: disty-craft-framework
-        path: disty-craft-framework
-        retention-days: 10
-        overwrite: true
-        include-hidden-files: true
+      - name: Checkout
+        uses: actions/checkout@v5
+    #   - name: Build
+    #     run: echo ${{ github.sha }} > Release.txt
+    #   - name: Test
+    #     run: cat Release.txt
+      - name: Zip
+        run: zip -r '${{ github.ref_name }}-${{ github.sha }}-framework.zip' disty-craft-framework   
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          files: ${{ github.ref_name }}-${{ github.sha }}-framework.zip
