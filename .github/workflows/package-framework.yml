@@ -1,0 +1,23 @@
+name: Packaging the framework
+run-name: ${{ github.actor }} packaging your framework 🚀
+
+on:
+  push:
+    branches:
+        - main
+  pull_request:
+    branches:
+        - main
+
+jobs:
+  treefmt:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+    - uses: actions/upload-artifact@v4
+      with:
+        name: disty-craft-framework
+        path: disty-craft-framework
+        retention-days: 10
+        overwrite: true
+        include-hidden-files: true
