@@ -10,10 +10,22 @@
   packages = [ pkgs.git-cliff ];
 
   # https://devenv.sh/languages/
-  languages.javascript = {
-    enable = true;
-    package = pkgs.nodejs_22;
-    pnpm.enable = true;
+  languages = {
+    javascript = {
+      enable = true;
+      package = pkgs.nodejs_22;
+      pnpm.enable = true;
+    };
+
+    python = {
+      enable = true;
+      package = pkgs.python314;
+      directory = "./distyctl";
+
+      uv = {
+        enable = true;
+      };
+    };
   };
 
   treefmt = import ./nix/treefmt;
