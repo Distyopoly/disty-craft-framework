@@ -1,7 +1,6 @@
 {
   pkgs,
   _lib,
-  config,
   _inputs,
   ...
 }:
@@ -23,13 +22,12 @@
 
   treefmt = import ./nix/treefmt;
 
-  processes.framework = {
-    exec = "pnpm dev";
-    cwd = "${config.git.root}/disty-craft-framework";
-  };
-
   scripts = {
     framework-install.exec = "pnpm install";
+  };
+
+  processes = {
+    dev.exec = "pnpm dev --port 5173";
   };
 
   # See full reference at https://devenv.sh/reference/options/
