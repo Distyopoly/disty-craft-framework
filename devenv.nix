@@ -28,6 +28,10 @@
     cwd = "${config.git.root}/disty-craft-framework";
   };
 
+  scripts = {
+    framework-install.exec = "pnpm install";
+  };
+
   # See full reference at https://devenv.sh/reference/options/
 
   # https://devenv.sh/scripts/
