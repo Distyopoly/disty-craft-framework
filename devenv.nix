@@ -9,6 +9,7 @@
   packages = [
     pkgs.git
     pkgs.git-cliff
+    pkgs.commitizen
   ];
 
   dotenv.disableHint = true;
