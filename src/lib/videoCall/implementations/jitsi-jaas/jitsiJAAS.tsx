@@ -37,7 +37,7 @@ function VideoCallComponent(props: VideoCallProps) {
                     MOBILE_APP_PROMO: false,
                     TILE_VIEW_MAX_COLUMNS: 4
                 }}
-                getIFrameRef = { (iframeRef) => { iframeRef.style.height = '1000px'; } }
+                getIFrameRef = { (iframeRef) => { iframeRef.style.height = '1000%'; iframeRef.style.width = '100%'; } }
             />)
   
 };
