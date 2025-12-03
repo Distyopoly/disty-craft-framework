@@ -38,11 +38,20 @@
 
         packages = [
           pkgs.commitizen
-          pkgs.nodePackages.localtunnel # will need to rewrite in future update, is already available in upstream: pkgs.localtunnel
+          # pkgs.nodePackages.localtunnel # will need to rewrite in future update, is already available in upstream: pkgs.localtunnel
+          pkgs.zrok
         ];
 
+        scripts = {
+          mktun.exec =
+            let
+              reserved-name = "k6y2mhoyz4mt";
+            in
+            "zrok share reserved ${reserved-name}";
+        };
+
         processes = {
-          localtunnel.exec = "lt --port ${dev-port}";
+          # localtunnel.exec = "lt --port ${dev-port}";
           dev.exec = "pnpm dev --port ${dev-port}";
         };
       };
