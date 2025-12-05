@@ -6,7 +6,6 @@ export default function RootLayout({
 }>) {
     return (
         <>
-            <p>Session PIN: 1234</p>
             {children}
         </>
     )
